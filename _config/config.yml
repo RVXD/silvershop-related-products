@@ -16,4 +16,6 @@ Name: silvershop-related-products-providers
 SilverShop\RelatedProducts\Provider\RelatedProductsRegistry:
   providers:
     - SilverShop\RelatedProducts\Provider\BoughtTogetherProvider
+    - SilverShop\RelatedProducts\Provider\AlsoViewedProvider
+    - SilverShop\RelatedProducts\Provider\BrandProvider
     - SilverShop\RelatedProducts\Provider\CategoryRelatedProvider

@@ -6,7 +6,9 @@ use SilverShop\Model\Order;
 use SilverShop\Model\Product\OrderItem;
 use SilverShop\Page\Product;
 use SilverShop\Page\ProductCategory;
+use SilverShop\RelatedProducts\Provider\AlsoViewedProvider;
 use SilverShop\RelatedProducts\Provider\BoughtTogetherProvider;
+use SilverShop\RelatedProducts\Provider\BrandProvider;
 use SilverShop\RelatedProducts\Provider\CategoryRelatedProvider;
 use SilverStripe\Dev\SapphireTest;
 
@@ -76,5 +78,21 @@ class ProvidersTest extends SapphireTest
         [, $a] = $this->categoryWithProducts();
 
         $this->assertCount(0, $a->UpSells(), 'up-sells are manual only (not in auto_fill_slots)');
+    }
+
+    public function testBrandProviderIsInertWithoutTheBrandsModule(): void
+    {
+        $product = Product::create(['Title' => 'P', 'BasePrice' => 10]);
+        $product->write();
+
+        $this->assertCount(0, (new BrandProvider())->getRelatedProducts($product, 10));
+    }
+
+    public function testAlsoViewedProviderIsInertWithoutTheAnalyticsModule(): void
+    {
+        $product = Product::create(['Title' => 'P', 'BasePrice' => 10]);
+        $product->write();
+
+        $this->assertCount(0, (new AlsoViewedProvider())->getRelatedProducts($product, 10));
     }
 }

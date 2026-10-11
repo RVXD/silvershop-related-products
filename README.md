@@ -65,10 +65,13 @@ When a slot has no manual picks, it falls back to pluggable providers. Out of th
 auto-fill (up-sells stay manual). Providers run in order and de-duplicate:
 
 1. **Bought together** — products co-purchased in placed orders.
-2. **Same category** — products sharing a category (uses `silvershop/category-index` when installed, else the
+2. **Also viewed** — products viewed by the same visitors (soft-dep `silvershop/analytics`).
+3. **Same brand** — other products of the same brand (soft-dep `silvershop/brands`).
+4. **Same category** — products sharing a category (uses `silvershop/category-index` when installed, else the
    product's own primary/secondary categories).
 
-A manual pick always wins — curate a slot and the fallback steps aside.
+Soft-dep providers simply return nothing when their module is absent. A manual pick always wins — curate a slot and
+the fallback steps aside.
 
 ```yaml
 SilverShop\Page\Product:
@@ -79,12 +82,10 @@ SilverShop\Page\Product:
 SilverShop\RelatedProducts\Provider\RelatedProductsRegistry:
   providers:                 # ordered; de-duplicated across providers
     - SilverShop\RelatedProducts\Provider\BoughtTogetherProvider
+    - SilverShop\RelatedProducts\Provider\AlsoViewedProvider
+    - SilverShop\RelatedProducts\Provider\BrandProvider
     - SilverShop\RelatedProducts\Provider\CategoryRelatedProvider
 ```
-
-## Roadmap
-
-- More providers: same **brand** (`silvershop/brands`), **also-viewed** (`silvershop/analytics`).
 
 ## License
 
