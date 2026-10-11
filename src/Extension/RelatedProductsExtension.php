@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SilverShop\RelatedProducts\Extension;
 
 use SilverShop\Page\Product;
+use SilverShop\RelatedProducts\Provider\RelatedProductsRegistry;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
@@ -29,6 +30,9 @@ class RelatedProductsExtension extends Extension
 {
     /** Default number of products returned by each display accessor (0 = no limit). */
     private static int $related_products_limit = 4;
+
+    /** Relation slots that fall back to the automatic providers when they have no manual picks. */
+    private static array $auto_fill_slots = ['RelatedProducts', 'CrossSellProducts'];
 
     private static array $many_many = [
         'RelatedProducts' => Product::class,
@@ -92,9 +96,18 @@ class RelatedProductsExtension extends Extension
     private function relatedSlot(string $relation, ?int $limit): SS_List
     {
         $owner = $this->getOwner();
-        $list = $owner->$relation()->exclude('ID', $owner->ID);
         $limit ??= (int) $owner->config()->get('related_products_limit');
+        $curated = $owner->$relation()->exclude('ID', $owner->ID);
 
-        return $limit > 0 ? $list->limit($limit) : $list;
+        if ($curated->exists()) {
+            return $limit > 0 ? $curated->limit($limit) : $curated;
+        }
+
+        // Empty slot: fall back to the automatic providers when this slot opts in.
+        if (in_array($relation, (array) $owner->config()->get('auto_fill_slots'), true)) {
+            return RelatedProductsRegistry::singleton()->getRelatedProducts($owner, $limit);
+        }
+
+        return $curated;
     }
 }

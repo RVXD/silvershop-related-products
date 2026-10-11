@@ -59,11 +59,32 @@ SilverShop\Page\Product:
 
 The accessors also take an explicit limit: `$UpSells(8)`.
 
+## Automatic fallback
+
+When a slot has no manual picks, it falls back to pluggable providers. Out of the box **Related** and **Cross-sell**
+auto-fill (up-sells stay manual). Providers run in order and de-duplicate:
+
+1. **Bought together** — products co-purchased in placed orders.
+2. **Same category** — products sharing a category (uses `silvershop/category-index` when installed, else the
+   product's own primary/secondary categories).
+
+A manual pick always wins — curate a slot and the fallback steps aside.
+
+```yaml
+SilverShop\Page\Product:
+  auto_fill_slots:            # slots that auto-fill when empty (default: Related + Cross-sell)
+    - RelatedProducts
+    - CrossSellProducts
+
+SilverShop\RelatedProducts\Provider\RelatedProductsRegistry:
+  providers:                 # ordered; de-duplicated across providers
+    - SilverShop\RelatedProducts\Provider\BoughtTogetherProvider
+    - SilverShop\RelatedProducts\Provider\CategoryRelatedProvider
+```
+
 ## Roadmap
 
-- **Automatic fallback** (a later slice): when a slot is empty, fill it from pluggable providers — shared category
-  (`silvershop/category-index`), bought-together (order history), same brand (`silvershop/brands`), also-viewed
-  (`silvershop/analytics`).
+- More providers: same **brand** (`silvershop/brands`), **also-viewed** (`silvershop/analytics`).
 
 ## License
 

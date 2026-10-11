@@ -9,3 +9,11 @@ SilverShop\Page\Product:
 SilverShop\Model\Order:
   extensions:
     - SilverShop\RelatedProducts\Extension\OrderCrossSellExtension
+---
+Name: silvershop-related-products-providers
+---
+# Ordered automatic-fallback providers used to fill an empty relation slot (see Product.auto_fill_slots).
+SilverShop\RelatedProducts\Provider\RelatedProductsRegistry:
+  providers:
+    - SilverShop\RelatedProducts\Provider\BoughtTogetherProvider
+    - SilverShop\RelatedProducts\Provider\CategoryRelatedProvider

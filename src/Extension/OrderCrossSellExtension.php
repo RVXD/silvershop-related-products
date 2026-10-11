@@ -32,8 +32,9 @@ class OrderCrossSellExtension extends Extension
 
         $crossSell = [];
         foreach (Product::get()->filter('ID', array_keys($inCart)) as $product) {
-            foreach ($product->CrossSellProducts()->column('ID') as $id) {
-                $crossSell[(int) $id] = true;
+            // CrossSells() includes the automatic fallback, so empty manual slots still suggest something.
+            foreach ($product->CrossSells(0) as $candidate) {
+                $crossSell[(int) $candidate->ID] = true;
             }
         }
 
