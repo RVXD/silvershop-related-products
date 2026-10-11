@@ -1,0 +1,13 @@
+en:
+  SilverShop\RelatedProducts\Extension\RelatedProductsExtension:
+    Intro: 'Link other products to this one. <strong>Up-sells</strong> (better or alternative versions) and <strong>related</strong> products show on this product''s page; <strong>cross-sells</strong> (things bought together) show in the cart. Use the search box to add existing products.'
+    UpSellProducts: 'Up-sell products'
+    CrossSellProducts: 'Cross-sell products'
+    RelatedProducts: 'Related products'
+    ColCode: 'Code'
+    ColTitle: 'Title'
+    ColPrice: 'Price'
+    UpSellsHeading: 'You may also like'
+    RelatedHeading: 'Related products'
+  SilverShop\RelatedProducts\Extension\OrderCrossSellExtension:
+    CrossSellsHeading: 'Frequently bought together'

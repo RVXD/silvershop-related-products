@@ -1,0 +1,13 @@
+fr:
+  SilverShop\RelatedProducts\Extension\RelatedProductsExtension:
+    Intro: 'Associez d''autres produits à celui-ci. Les <strong>ventes incitatives</strong> (versions meilleures ou alternatives) et les produits <strong>associés</strong> s''affichent sur la page produit ; les <strong>ventes croisées</strong> (souvent achetés ensemble) s''affichent dans le panier. Utilisez le champ de recherche pour ajouter des produits existants.'
+    UpSellProducts: 'Produits de vente incitative'
+    CrossSellProducts: 'Produits de vente croisée'
+    RelatedProducts: 'Produits associés'
+    ColCode: 'Code'
+    ColTitle: 'Titre'
+    ColPrice: 'Prix'
+    UpSellsHeading: 'Vous aimerez aussi'
+    RelatedHeading: 'Produits associés'
+  SilverShop\RelatedProducts\Extension\OrderCrossSellExtension:
+    CrossSellsHeading: 'Souvent achetés ensemble'

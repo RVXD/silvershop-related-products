@@ -1,0 +1,13 @@
+es:
+  SilverShop\RelatedProducts\Extension\RelatedProductsExtension:
+    Intro: 'Vincula otros productos con este. Las <strong>ventas adicionales</strong> (versiones mejores o alternativas) y los productos <strong>relacionados</strong> se muestran en la página del producto; las <strong>ventas cruzadas</strong> (productos que se compran juntos) se muestran en el carrito. Usa el campo de búsqueda para añadir productos existentes.'
+    UpSellProducts: 'Productos de venta adicional'
+    CrossSellProducts: 'Productos de venta cruzada'
+    RelatedProducts: 'Productos relacionados'
+    ColCode: 'Código'
+    ColTitle: 'Título'
+    ColPrice: 'Precio'
+    UpSellsHeading: 'También te puede gustar'
+    RelatedHeading: 'Productos relacionados'
+  SilverShop\RelatedProducts\Extension\OrderCrossSellExtension:
+    CrossSellsHeading: 'Se compran juntos a menudo'

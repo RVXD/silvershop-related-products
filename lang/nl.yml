@@ -1,0 +1,13 @@
+nl:
+  SilverShop\RelatedProducts\Extension\RelatedProductsExtension:
+    Intro: 'Koppel andere producten aan dit product. <strong>Up-sells</strong> (betere of alternatieve versies) en <strong>gerelateerde</strong> producten verschijnen op de productpagina; <strong>cross-sells</strong> (vaak samen gekocht) verschijnen in de winkelwagen. Gebruik het zoekveld om bestaande producten toe te voegen.'
+    UpSellProducts: 'Up-sell-producten'
+    CrossSellProducts: 'Cross-sell-producten'
+    RelatedProducts: 'Gerelateerde producten'
+    ColCode: 'Code'
+    ColTitle: 'Titel'
+    ColPrice: 'Prijs'
+    UpSellsHeading: 'Misschien vind je dit ook leuk'
+    RelatedHeading: 'Gerelateerde producten'
+  SilverShop\RelatedProducts\Extension\OrderCrossSellExtension:
+    CrossSellsHeading: 'Vaak samen gekocht'

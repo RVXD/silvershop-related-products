@@ -1,0 +1,13 @@
+de:
+  SilverShop\RelatedProducts\Extension\RelatedProductsExtension:
+    Intro: 'Verknüpfe andere Produkte mit diesem. <strong>Up-Sells</strong> (bessere oder alternative Versionen) und <strong>verwandte</strong> Produkte erscheinen auf der Produktseite; <strong>Cross-Sells</strong> (häufig zusammen gekauft) erscheinen im Warenkorb. Nutze das Suchfeld, um bestehende Produkte hinzuzufügen.'
+    UpSellProducts: 'Up-Sell-Produkte'
+    CrossSellProducts: 'Cross-Sell-Produkte'
+    RelatedProducts: 'Verwandte Produkte'
+    ColCode: 'Code'
+    ColTitle: 'Titel'
+    ColPrice: 'Preis'
+    UpSellsHeading: 'Das könnte dir auch gefallen'
+    RelatedHeading: 'Verwandte Produkte'
+  SilverShop\RelatedProducts\Extension\OrderCrossSellExtension:
+    CrossSellsHeading: 'Häufig zusammen gekauft'

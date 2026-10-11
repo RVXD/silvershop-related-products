@@ -1,0 +1,11 @@
+---
+Name: silvershop-related-products
+After:
+  - '#silvershop'
+---
+SilverShop\Page\Product:
+  extensions:
+    - SilverShop\RelatedProducts\Extension\RelatedProductsExtension
+SilverShop\Model\Order:
+  extensions:
+    - SilverShop\RelatedProducts\Extension\OrderCrossSellExtension
