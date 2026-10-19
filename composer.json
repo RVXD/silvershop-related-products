@@ -1,5 +1,5 @@
 {
-    "name": "silvershop/related-products",
+    "name": "silvershop-suite/related-products",
     "description": "Related, up-sell and cross-sell product relations for SilverShop: hand-curated links shown on the product page and in the cart.",
     "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe", "silvershop", "ecommerce", "related-products", "upsell", "cross-sell", "merchandising"],
@@ -26,8 +26,8 @@
         "silverstripe/sqlite3": "^4"
     },
     "suggest": {
-        "silvershop/brands": "Adds the 'same brand' automatic related-products provider.",
-        "silvershop/analytics": "Adds the 'also viewed' automatic related-products provider."
+        "silvershop-suite/brands": "Adds the 'same brand' automatic related-products provider.",
+        "silvershop-suite/analytics": "Adds the 'also viewed' automatic related-products provider."
     },
     "extra": {
         "branch-alias": {
