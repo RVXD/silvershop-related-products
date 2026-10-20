@@ -1,0 +1,11 @@
+---
+Name: silvershop-related-products-api
+Only:
+  moduleexists: 'silvershop-suite/api'
+---
+# Registers this module's related-products enricher onto the REST base's ProductSerializer — only when
+# silvershop-suite/api is installed, so related-products stays standalone. Adds `upSells` / `relatedItems` /
+# `crossSells` id arrays to the serialised product; the matching GraphQL fields ride the same output (see _graphql/).
+SilverShop\Api\Serializer\ProductSerializer:
+  extensions:
+    - SilverShop\RelatedProducts\Enrichment\RelatedProductsEnrichment

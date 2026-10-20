@@ -1,0 +1,13 @@
+# Re-opens the shared Product type (declared in silvershop-suite/api-graphql's _graphql/types.yml) to add the
+# `upSells`, `relatedItems` and `crossSells` product-id arrays. Field names mirror SilverShop\RelatedProducts\
+# Enrichment\RelatedProductsEnrichment ($data['upSells'] / ['relatedItems'] / ['crossSells']) key-for-key, so
+# GraphQL's default array field-resolver maps the REST serializer's output with no PHP. silverstripe/graphql merges
+# the fields into the single Product type (Type::mergeWith). Only read when the overlay is installed (see
+# _config/graphql.yml guard).
+
+# Adds Product.upSells / relatedItems / crossSells — ride SilverShop\RelatedProducts\Enrichment\RelatedProductsEnrichment
+Product:
+  fields:
+    upSells: '[Int]'
+    relatedItems: '[Int]'
+    crossSells: '[Int]'

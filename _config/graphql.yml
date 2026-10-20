@@ -1,0 +1,15 @@
+---
+Name: silvershop-related-products-graphql
+Only:
+  moduleexists: 'silvershop-suite/api-graphql'
+After:
+  - '#graphql-schema-default'
+---
+# Registers this module's _graphql/ type fragment into the default schema — only when the GraphQL overlay is
+# installed, so related-products stays standalone. Adds Product.upSells / relatedItems / crossSells, which ride the
+# REST RelatedProductsEnrichment.
+SilverStripe\GraphQL\Schema\Schema:
+  schemas:
+    default:
+      src:
+        silvershop-related-products: 'silvershop-suite/related-products: _graphql'
